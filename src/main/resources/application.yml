@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: campanha
+
+server:
+  error:
+    include-exception: false
+    include-stacktrace: NEVER
+  servlet-path: /campanha
+  servlet:
+    context-path: /campanha
+  port: 8087
+
+db-config:
+  driver-class-name:  org.postgresql.Driver
+  setMinPoolSize: 3
+  setAcquireIncrement: 5
+  setMaxPoolSize: 50
+  setMaxStatements: 180
+  setIdleTimeOut: 30000
+  setConnectionTimeout: 10000
+  setMaxLifeTime: 300000
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: opus
+    api:
+      access-token-uri: http://localhost:8081/usuario/oauth/token
+      client-id: campanha
+      client-secret: campanha_secr3t3!
+
