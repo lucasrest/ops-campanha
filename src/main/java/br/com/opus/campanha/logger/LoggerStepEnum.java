@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum LoggerStepEnum {
-    TES00001("[TesteController] - [buscartodos]"),
-    TES00002("[TesteController] - [buscaPorId]"),
-    TES00003("[TesteController] - [incluir]"),
-    TES00004("[TesteController] - [atualizar]"),
-    TES00005("[TesteController] - [deletar]"),
+    CAM00001("[CampanhaController] - [buscartodos]"),
+    CAM00002("[CampanhaController] - [buscaPorId]"),
+    CAM00003("[CampanhaController] - [incluir]"),
+    CAM00004("[CampanhaController] - [atualizar]"),
+    CAM00005("[CampanhaController] - [deletar]"),
 
-    NOT00001("[NotificacaoController] - [sms]"),
-
-    USE0090("Erro");
+    ERR0090("Erro");
 
     private String message;
 

@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.bsx</groupId>
-    <artifactId>agendamento</artifactId>
+    <artifactId>campanha</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>agendamento</name>
-    <description>Controle de Agendamentos</description>
+    <name>campanha</name>
+    <description>Controle de campanhas</description>
 
     <properties>
         <java.version>8</java.version>

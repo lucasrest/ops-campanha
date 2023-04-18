@@ -2,10 +2,14 @@ package br.com.opus.campanha.model.constants;
 
 public class Permissoes {
 
-    public interface NOTIFICACAO {
+    public interface CAMPANHA {
 
-        String SMS = "agendamento-sms";
-        String EMAIL = "agendamento-email";
+        String BUSCARTODOS = "campanha-buscartodos";
+        String BUSCARPORID = "campanha-buscarporid";
+        String INCLUIR = "campanha-incluir";
+        String ATUALIZAR = "campanha-atualizar";
+        String EXCLUIR = "campanha-excluir";
+        String BUSCARTODOSFILTRO = "campanha-buscartodosfiltro";
 
     }
 }

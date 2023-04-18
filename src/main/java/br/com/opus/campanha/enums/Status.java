@@ -14,4 +14,5 @@ public enum Status {
     Status(Integer value) {
         this.value = value;
     }
+
 }
