@@ -2,14 +2,13 @@ package br.com.opus.campanha.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -17,8 +16,9 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "beneficio", schema = "opus")
-@SequenceGenerator(sequenceName = "opus.seq_beneficio", name = "id", schema = "opus", allocationSize = 1)
+@EqualsAndHashCode(callSuper = false)
+@Table(name = "vaga", schema = "opus")
+@SequenceGenerator(sequenceName = "opus.seq_vaga", name = "id", schema = "opus", allocationSize = 1)
 public class Vaga extends EntidadeBase {
 
     @Column(nullable = false)
@@ -71,13 +71,9 @@ public class Vaga extends EntidadeBase {
             inverseJoinColumns = @JoinColumn(name = "tipo_contracao_id"))
     private Set<TipoContratacao> tipoContratacoes = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(
-            schema = "opus",
-            name = "vaga_beneficio",
-            joinColumns = @JoinColumn(name = "vaga_id"),
-            inverseJoinColumns = @JoinColumn(name = "beneficio_id"))
-    private Set<Beneficio> beneficios = new HashSet<>();
+    @JsonManagedReference("vaga-beneficio")
+    @OneToMany(mappedBy = "vaga")
+    private List<VagaBeneficio> beneficios = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(

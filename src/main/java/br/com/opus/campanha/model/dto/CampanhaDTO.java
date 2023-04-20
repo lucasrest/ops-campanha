@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CampanhaDTO extends EntidadeAPI {
+public class CampanhaDTO extends EntidadeBaseDTO {
 
     @NotEmpty
     private String nome;

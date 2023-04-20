@@ -1,6 +1,5 @@
 package br.com.opus.campanha.model.dto;
 
-import br.com.opus.campanha.model.EntidadeAPI;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -10,14 +9,16 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class VagaDTO extends EntidadeAPI {
+public class VagaDTO extends EntidadeBaseDTO {
 
     @NotEmpty
     private String funcao;
@@ -50,8 +51,8 @@ public class VagaDTO extends EntidadeAPI {
     @JsonManagedReference("tipo-contratacoes")
     private Set<TipoContratacaoDTO> tipoContratacoes = new HashSet<>();
 
-    @JsonManagedReference("beneficios")
-    private Set<BeneficioDTO> beneficios = new HashSet<>();
+    @JsonManagedReference("vaga-beneficio")
+    private List<VagaBeneficioDTO> beneficios = new ArrayList<>();
 
     @JsonManagedReference("jornadas-trabalho")
     private Set<JornadaTrabalhoDTO> jornadasTrabalho = new HashSet<>();

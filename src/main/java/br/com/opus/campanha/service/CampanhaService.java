@@ -3,6 +3,7 @@ package br.com.opus.campanha.service;
 import br.com.opus.campanha.enums.Status;
 import br.com.opus.campanha.exception.EntidadeNaoEncontradaException;
 import br.com.opus.campanha.model.Campanha;
+import br.com.opus.campanha.model.Vaga;
 import br.com.opus.campanha.model.dto.CampanhaDTO;
 import br.com.opus.campanha.repository.CampanhaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,13 @@ public class CampanhaService extends BaseService<Campanha, CampanhaDTO> {
                 .orElseThrow(() -> new EntidadeNaoEncontradaException(ENTIDADE_NAO_ENCONTRADA));
     }
 
-    public Campanha incluir(Campanha entidade) {
-        return repository.save(entidade);
+    public Campanha incluir(Campanha campanha) {
+        validarCampanha(campanha);
+        return repository.save(campanha);
+    }
+
+    private void validarCampanha(Campanha entidade) {
+
     }
 
     public Campanha atualizar(Campanha entidade) {

@@ -1,6 +1,7 @@
 package br.com.opus.campanha.exception.handler;
 
 
+import br.com.opus.campanha.exception.EntidadeNaoEncontradaException;
 import br.com.opus.campanha.exception.comum.ErrorMessage;
 import br.com.opus.campanha.model.comum.ApiError;
 import br.com.opus.campanha.model.comum.ApiResponse;
@@ -152,6 +153,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return new ResponseEntity<>(ApiResponse.returnError(fillException(ex)), status);
+    }
+
+    @ExceptionHandler(EntidadeNaoEncontradaException.class)
+    protected ResponseEntity<Object> handleEntidadeNaoEncontradaException(
+            EntidadeNaoEncontradaException ex) {
+        return getObjectResponseEntity(HttpStatus.NOT_FOUND, ex);
     }
 
     private List<ApiError> createErrorList(BindingResult bindingResult) {

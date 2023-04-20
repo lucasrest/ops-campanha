@@ -192,11 +192,7 @@ create sequence "opus"."seq_jornada_trabalho"  minvalue 1 maxvalue 9999999999999
 
 create table "opus"."vaga_questao"
 (
-  id integer constraint vaga_questao_pk primary key not null
-, inclusao timestamp not null
-, alteracao timestamp
-, status integer not null
-, vaga_id integer not null
+vaga_id integer not null
 , questao_id integer not null
 );
 
@@ -207,11 +203,7 @@ alter table "opus"."vaga_questao" add foreign key (questao_id) references "opus"
 
 create table "opus"."vaga_tipo_contracao"
 (
-  id integer constraint vaga_vaga_tipo_contracao_pk primary key not null
-, inclusao timestamp not null
-, alteracao timestamp
-, status integer not null
-, vaga_id integer not null
+vaga_id integer not null
 , tipo_contracao_id integer not null
 );
 
@@ -222,11 +214,7 @@ alter table "opus"."vaga_tipo_contracao" add foreign key (tipo_contracao_id) ref
 
 create table "opus"."vaga_beneficio"
 (
-  id integer constraint vaga_beneficio_pk primary key not null
-, inclusao timestamp not null
-, alteracao timestamp
-, status integer not null
-, vaga_id integer not null
+vaga_id integer not null
 , beneficio_id integer not null
 );
 
@@ -237,17 +225,13 @@ alter table "opus"."vaga_beneficio" add foreign key (beneficio_id) references "o
 
 create table "opus"."vaga_jornada_trabalho"
 (
-  id integer constraint vaga_jornada_trabalho_pk primary key not null
-, inclusao timestamp not null
-, alteracao timestamp
-, status integer not null
-, vaga_id integer not null
+vaga_id integer not null
 , jornada_trabalho_id integer not null
 );
 
 create sequence "opus"."seq_vaga_jornada_trabalho"  minvalue 1 maxvalue 999999999999999 increment by 1 start with 1000;
 
 alter table "opus"."vaga_jornada_trabalho" add foreign key (vaga_id) references "opus".vaga(id);
-alter table "opus"."vaga_jornada_trabalho" add foreign key (jornada_trabalho_id) references "opus".vaga_jornada_trabalho(id);
+alter table "opus"."vaga_jornada_trabalho" add foreign key (jornada_trabalho_id) references "opus".jornada_trabalho(id);
 
 

@@ -19,7 +19,7 @@ import javax.validation.Valid;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = API.VERSAO + "campanha", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = API.VERSAO + "/campanhas", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CampanhaController extends BaseController {
 
     @Autowired
@@ -47,11 +47,11 @@ public class CampanhaController extends BaseController {
     @PreAuthorize("#oauth2.hasScope('campanha') || hasAuthority('" + Permissoes.CAMPANHA.INCLUIR+ "')")
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public ApiResponse incluir(@RequestBody @Valid CampanhaDTO dto) {
-        LoggerUtil.logger(LoggerStepEnum.CAM00003, dto);
-        Campanha campanha = service.incluir(service.converterDTOParaEntidade(dto));
-        LoggerUtil.logger(LoggerStepEnum.CAM00003, dto,campanha);
-        return  ApiResponse.returnOk(service.converterEntidadeParaDTO(campanha));
+    public ApiResponse incluir(@RequestBody @Valid Campanha camp) {
+        LoggerUtil.logger(LoggerStepEnum.CAM00003, camp);
+        Campanha campanha = service.incluir(camp);
+        LoggerUtil.logger(LoggerStepEnum.CAM00003, camp,campanha);
+        return  ApiResponse.returnOk(campanha);
     }
 
     /*@PreAuthorize("#oauth2.hasScope('campanha') || hasAuthority('" + Permissoes.CAMPANHA.BUSCARTODOSFILTRO+ "')")

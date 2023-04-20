@@ -6,17 +6,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Entity;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TipoContratacaoDTO extends EntidadeBaseDTO {
+public class VagaBeneficioDTO extends EntidadeBaseDTO {
 
-    @NotEmpty
-    private String descricao;
-
-    @JsonBackReference("tipo-contratacoes")
+    @JsonBackReference("vaga-beneficio")
     private VagaDTO vaga;
+
+    private BeneficioDTO beneficio;
 }

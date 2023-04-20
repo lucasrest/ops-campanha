@@ -1,6 +1,5 @@
 package br.com.opus.campanha.model.dto;
 
-import br.com.opus.campanha.model.EntidadeAPI;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class IdiomasDTO extends EntidadeAPI {
+public class IdiomasDTO extends EntidadeBaseDTO {
 
     @NotNull
     private Boolean indiferente = Boolean.FALSE;

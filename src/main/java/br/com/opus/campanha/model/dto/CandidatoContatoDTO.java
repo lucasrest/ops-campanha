@@ -1,6 +1,5 @@
 package br.com.opus.campanha.model.dto;
 
-import br.com.opus.campanha.model.EntidadeAPI;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CandidatoContatoDTO extends EntidadeAPI {
+public class CandidatoContatoDTO extends EntidadeBaseDTO {
 
     @NotNull
     private Boolean email = Boolean.FALSE;

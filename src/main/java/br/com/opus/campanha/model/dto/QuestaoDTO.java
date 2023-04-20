@@ -1,14 +1,14 @@
 package br.com.opus.campanha.model.dto;
 
 import br.com.opus.campanha.enums.TipoQuestao;
-import br.com.opus.campanha.model.EntidadeAPI;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class QuestaoDTO extends EntidadeAPI {
+public class QuestaoDTO extends EntidadeBaseDTO {
 
     @NotNull
     @Enumerated(EnumType.STRING)

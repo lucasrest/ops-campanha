@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class JornadaTrabalhoDTO extends EntidadeAPI {
+public class JornadaTrabalhoDTO extends EntidadeBaseDTO {
 
     @Enumerated(EnumType.STRING)
     @NotNull
